@@ -1,4 +1,71 @@
 .homes {
-    background-color: $color-secondary;
     grid-column: center-start/center-end;
+    margin: 15rem 0;
+    
+    display: grid;
+    grid-gap: 7rem;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+}
+.home {
+    background-color: $color-grey-light-1;
+
+    display: grid;
+    grid-row-gap: 3.5rem;
+    grid-template-columns: repeat(2, 1fr);
+
+    %svg-size {
+        width: 2rem;
+        height: 2rem;
+        fill: $color-primary;
+    }
+    %fill-columns {
+        grid-column: 1/-1;
+    }
+    %put-in-first-row {
+        grid-row: 1/2;
+    }
+    &__img {
+        width: 100%;
+        @extend %fill-columns;
+        @extend %put-in-first-row;
+    }
+    &__like {
+        @extend %svg-size;
+        @extend %fill-columns;
+        @extend %put-in-first-row;
+        justify-self: end;
+        margin: 1rem;
+    }
+    &__name {
+        @extend %fill-columns;
+        @extend %put-in-first-row;
+        justify-self: center;
+        align-self: end;
+
+        width: 80%;
+        text-align: center;
+        transform: translateY(50%);
+        background-color: $color-secondary;
+        color: $color-white;
+        font-size: 1.6rem;
+        font-weight: 400;
+        padding: 1.25rem;
+    }
+    &__location, &__rooms {
+        margin-top: 1.5rem;
+    }
+    &__info-item {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        font-size: 1.5rem;
+        margin-left: 2rem;
+        & svg {
+            @extend %svg-size;
+            margin-right: 1rem;
+        }
+    }
+    &__btn {
+        @extend %fill-columns;
+    }
 }
