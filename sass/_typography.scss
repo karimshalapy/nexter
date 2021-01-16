@@ -4,3 +4,24 @@ body {
     font-weight: 300;
     line-height: 1.6;
 }
+%heading-style {
+    font-family: $font-display;
+    font-weight: 400;
+}
+heading-1 {
+    @extend %heading-style;
+}
+heading-2 {
+    @extend %heading-style;
+
+}
+heading-3 {
+    @extend %heading-style;
+
+}
+heading-4 {
+    @extend %heading-style;
+    font-size: 1.9rem;
+    &--light { color: $color-grey-light-1; }
+    &--dark { color: $color-grey-dark-1; }
+}
