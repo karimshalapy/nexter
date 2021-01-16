@@ -3,14 +3,14 @@
     margin: 15rem 0;
     
     display: grid;
-    grid-gap: 7rem;
+    gap: 7rem;
     grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
 }
 .home {
     background-color: $color-grey-light-1;
 
     display: grid;
-    grid-row-gap: 3.5rem;
+    row-gap: 3.5rem;
     grid-template-columns: repeat(2, 1fr);
 
     %svg-size {

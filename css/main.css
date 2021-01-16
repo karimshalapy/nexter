@@ -63,6 +63,11 @@ body {
   font-family: "Josefin Sans", sans-serif;
   font-weight: 400; }
 
+.heading-1 {
+  font-size: 4.5rem;
+  color: #f9f7f6;
+  line-height: 1; }
+
 .heading-2 {
   font-size: 4rem;
   font-style: italic;
@@ -116,8 +121,44 @@ body {
       bottom: -1rem; }
 
 .header {
-  background-color: #54483A;
-  grid-column: full_bleed-start/span 7; }
+  grid-column: full_bleed-start/span 7;
+  background-image: linear-gradient(rgba(16, 29, 44, 0.93), rgba(16, 29, 44, 0.93)), url("../img/hero.jpeg");
+  background-position: center;
+  background-size: cover;
+  padding: 4rem 8rem 8rem;
+  display: grid;
+  grid-template-rows: 1fr min-content 6rem 1fr;
+  grid-template-columns: max-content;
+  gap: 1.5rem;
+  justify-content: center; }
+  .header__btn {
+    justify-self: start;
+    align-self: start; }
+  .header__logo {
+    height: 3rem;
+    justify-self: center; }
+  .header__seen-on-text {
+    display: grid;
+    grid-template-columns: 1fr max-content 1fr;
+    column-gap: 1.5rem;
+    font-size: 1.6rem;
+    color: white;
+    align-items: center;
+    filter: brightness(0.7); }
+    .header__seen-on-text::after, .header__seen-on-text::before {
+      content: "";
+      height: .1rem;
+      background-color: currentColor;
+      display: block; }
+  .header__seen-on-logos {
+    justify-self: center;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+    column-gap: 3rem; }
+    .header__seen-on-logos img {
+      height: 2.5rem;
+      filter: brightness(0.7); }
 
 .realtors {
   background-color: #101d2c;
@@ -128,15 +169,15 @@ body {
   margin: 15rem 0;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
-  grid-gap: 6rem;
+  gap: 6rem;
   align-items: start; }
 
 .feature {
   font-size: 1.7rem;
   display: grid;
   grid-template-columns: min-content 1fr;
-  grid-row-gap: 1.5rem;
-  grid-column-gap: 2.5rem; }
+  row-gap: 1.5rem;
+  column-gap: 2.5rem; }
   .feature__icon {
     fill: #c69963;
     width: 4.5rem;
@@ -180,13 +221,13 @@ body {
   grid-column: center-start/center-end;
   margin: 15rem 0;
   display: grid;
-  grid-gap: 7rem;
+  gap: 7rem;
   grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr)); }
 
 .home {
   background-color: #f9f7f6;
   display: grid;
-  grid-row-gap: 3.5rem;
+  row-gap: 3.5rem;
   grid-template-columns: repeat(2, 1fr); }
   .home .home__like, .home .home__info-item svg, .home__info-item .home svg {
     width: 2rem;
@@ -229,7 +270,7 @@ body {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   grid-template-rows: repeat(7, 5vw);
-  grid-gap: 1.5rem;
+  gap: 1.5rem;
   padding: 1.5rem; }
   .gallery__item {
     overflow: hidden; }
@@ -288,7 +329,7 @@ body {
 .nav__list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-  grid-gap: 2rem;
+  gap: 2rem;
   align-items: center; }
   .nav__list-item {
     text-align: center;
