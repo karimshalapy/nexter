@@ -16,8 +16,26 @@ $color-black: #000;
 $font-primary: 'Nunito', sans-serif;
 $font-display: 'Josefin Sans', sans-serif;
 
-//TRANSITION
+//TRANSITION VARIABLES
 $transition: all .2s;
+
+//BREAKPOINTS VARIABLES
+$breakpoint-largest: 1200;
+$breakpoint-large: 1000;
+$breakpoint-medium: 800;
+$breakpoint-small: 600;
+$breakpoint-smallest: 500;
+
+//media queries
+@mixin respond($width, $maxOrMin: max) {
+    @if($width and $maxOrMin == max) {
+        @media only screen and (max-width: #{$width / 16}em) { @content; }
+    } @else if($width and $maxOrMin == min){
+        @media only screen and (min-width: #{$width / 16}em) { @content; }
+    } @else {
+        @error "Unknown boundaries"
+    }
+}
 
 //Global Reset
 *,
@@ -30,7 +48,8 @@ $transition: all .2s;
 
 html {
     box-sizing: border-box;
-    font-size: 62.5% //1rem == 10px;
+    font-size: 62.5%; //1rem == 10px
+    @include respond($breakpoint-largest) { font-size: 50%; } //1rem == 8px
 }
 
 ul, ol {
@@ -68,6 +87,13 @@ input {
     display: grid;
     grid-template-rows: 80vh auto 40vw repeat(4, auto);
     grid-template-columns: [sidebar-start] 8rem [sidebar-end full_bleed-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end] ) [center-end] minmax(6rem, 1fr) [full_bleed-end];
+    @include respond($breakpoint-large) {
+        grid-template-rows: 6rem 80vh auto 40vw repeat(4, auto);
+        grid-template-columns: [full_bleed-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end] ) [center-end] minmax(6rem, 1fr) [full_bleed-end];
+    }
+    @include respond($breakpoint-medium) {
+        grid-template-rows: 6rem calc(100vh - 6rem);
+    }
 }
 //UTILITY
 .mb-sm { margin-bottom: 2rem !important;}

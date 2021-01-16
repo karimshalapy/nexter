@@ -13,12 +13,17 @@
 .sidebar {
     background-color: $color-primary;
     grid-area: 1/sidebar-start/-1/sidebar-end;
+    @include respond($breakpoint-large) {
+        grid-area: 1/1/2/-1;
+    }
+
     &__btn {
         display: block;
         width: 4rem;
-        position: fixed;
-        top: 3rem;
-        left: 2rem;
+        margin: 2rem;
+        @include respond($breakpoint-large) {
+            margin: 2rem 2rem 0 auto
+        }
         &:focus, &:active {
             outline: .2rem solid $color-secondary;
             outline-offset: .2rem

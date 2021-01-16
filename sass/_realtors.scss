@@ -1,23 +1,33 @@
 .realtors {
     background-color: $color-secondary;
     grid-column: span 3/full_bleed-end;
-    // display: flex;
-    // flex-direction: column;
-    // justify-content: center;
-    // align-items: center;
+    @include respond($breakpoint-medium) {
+        grid-column: full_bleed-start/full_bleed-end;
+        padding: 4rem 0;
+    }
+    
     display: grid;
     gap: 2rem;
     justify-items: center;
     align-content: center;
+    &__list {
+        display: grid;
+        grid-auto-flow: row;
+        gap: 4vh;
+        @include respond($breakpoint-medium) {
+            grid-auto-flow: column;
+        }
+        @include respond($breakpoint-small) {
+            grid-auto-flow: row;
+            
+        }
+    }
 }
 .realtor {
     display: grid;
     grid-template-columns: max-content 1fr;
     align-items: center;
     gap: 2rem;
-    &:not(:last-child) {
-        margin-bottom: 4vh;
-    }
     &__img {
         width: 7rem;
         border-radius: 50%;

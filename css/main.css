@@ -8,6 +8,9 @@
 html {
   box-sizing: border-box;
   font-size: 62.5%; }
+  @media only screen and (max-width: 75em) {
+    html {
+      font-size: 50%; } }
 
 ul, ol {
   list-style: none; }
@@ -27,6 +30,13 @@ button {
   display: grid;
   grid-template-rows: 80vh auto 40vw repeat(4, auto);
   grid-template-columns: [sidebar-start] 8rem [sidebar-end full_bleed-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full_bleed-end]; }
+  @media only screen and (max-width: 62.5em) {
+    .container {
+      grid-template-rows: 6rem 80vh auto 40vw repeat(4, auto);
+      grid-template-columns: [full_bleed-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full_bleed-end]; } }
+  @media only screen and (max-width: 50em) {
+    .container {
+      grid-template-rows: 6rem calc(100vh - 6rem); } }
 
 .mb-sm {
   margin-bottom: 2rem !important; }
@@ -103,12 +113,16 @@ body {
 .sidebar {
   background-color: #c69963;
   grid-area: 1/sidebar-start/-1/sidebar-end; }
+  @media only screen and (max-width: 62.5em) {
+    .sidebar {
+      grid-area: 1/1/2/-1; } }
   .sidebar__btn {
     display: block;
     width: 4rem;
-    position: fixed;
-    top: 3rem;
-    left: 2rem; }
+    margin: 2rem; }
+    @media only screen and (max-width: 62.5em) {
+      .sidebar__btn {
+        margin: 2rem 2rem 0 auto; } }
     .sidebar__btn:focus, .sidebar__btn:active {
       outline: 0.2rem solid #101d2c;
       outline-offset: .2rem; }
@@ -127,10 +141,16 @@ body {
   background-size: cover;
   padding: 4rem 8rem 8rem;
   display: grid;
-  grid-template-rows: 1fr min-content 6rem 1fr;
-  grid-template-columns: max-content;
+  grid-template-rows: 1fr min-content minmax(6rem, min-content) 1fr;
+  grid-template-columns: minmax(min-content, max-content);
   gap: 1.5rem;
   justify-content: center; }
+  @media only screen and (max-width: 50em) {
+    .header {
+      grid-column: full_bleed-start/full_bleed-end; } }
+  @media only screen and (max-width: 37.5em) {
+    .header {
+      padding: 5rem; } }
   .header__btn {
     justify-self: start;
     align-self: start; }
@@ -155,9 +175,11 @@ body {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     justify-items: center;
+    align-items: center;
     column-gap: 3rem; }
     .header__seen-on-logos img {
-      height: 2.5rem;
+      max-height: 2.5rem;
+      max-width: 100%;
       filter: brightness(0.7); }
 
 .realtors {
@@ -167,14 +189,26 @@ body {
   gap: 2rem;
   justify-items: center;
   align-content: center; }
+  @media only screen and (max-width: 50em) {
+    .realtors {
+      grid-column: full_bleed-start/full_bleed-end;
+      padding: 4rem 0; } }
+  .realtors__list {
+    display: grid;
+    grid-auto-flow: row;
+    gap: 4vh; }
+    @media only screen and (max-width: 50em) {
+      .realtors__list {
+        grid-auto-flow: column; } }
+    @media only screen and (max-width: 37.5em) {
+      .realtors__list {
+        grid-auto-flow: row; } }
 
 .realtor {
   display: grid;
   grid-template-columns: max-content 1fr;
   align-items: center;
   gap: 2rem; }
-  .realtor:not(:last-child) {
-    margin-bottom: 4vh; }
   .realtor__img {
     width: 7rem;
     border-radius: 50%; }
@@ -212,17 +246,28 @@ body {
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(6, 1fr);
   align-items: center; }
+  @media only screen and (max-width: 50em) {
+    .story__pictures {
+      grid-column: full_bleed-start/full_bleed-end;
+      padding: 6rem; } }
 
 .story__img--1 {
   grid-area: 2/2/6/6;
   width: 100%;
   box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.1); }
+  @media only screen and (max-width: 50em) {
+    .story__img--1 {
+      grid-area: 1/1/-1/5; } }
 
 .story__img--2 {
   grid-area: 4/4/6/8;
   width: 115%;
   z-index: 1;
   box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2); }
+  @media only screen and (max-width: 50em) {
+    .story__img--2 {
+      grid-row: 1/-1;
+      width: 100%; } }
 
 .story__content {
   background-color: #f9f7f6;
@@ -231,6 +276,9 @@ body {
   display: grid;
   align-content: center;
   justify-items: start; }
+  @media only screen and (max-width: 50em) {
+    .story__content {
+      grid-area: 5/full_bleed-start/6/full_bleed-end; } }
   .story__content-text {
     font-size: 1.5rem;
     font-style: italic;
