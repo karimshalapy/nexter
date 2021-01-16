@@ -4,24 +4,33 @@ body {
     font-weight: 300;
     line-height: 1.6;
 }
+
 %heading-style {
     font-family: $font-display;
     font-weight: 400;
 }
-heading-1 {
-    @extend %heading-style;
-}
-heading-2 {
-    @extend %heading-style;
-
-}
-heading-3 {
-    @extend %heading-style;
-
-}
-heading-4 {
-    @extend %heading-style;
-    font-size: 1.9rem;
+@mixin dark_and_white_variants {
     &--light { color: $color-grey-light-1; }
     &--dark { color: $color-grey-dark-1; }
+}
+.heading-1 {
+    @extend %heading-style;
+}
+.heading-2 {
+    @extend %heading-style;
+    font-size: 4rem;
+    font-style: italic;
+    line-height: 1;
+    @include dark_and_white_variants;
+}
+.heading-3 {
+    @extend %heading-style;
+    font-size: 1.6rem;
+    color: $color-primary;
+    text-transform: uppercase
+}
+.heading-4 {
+    @extend %heading-style;
+    font-size: 1.9rem;
+    @include dark_and_white_variants;
 }

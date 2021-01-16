@@ -10,9 +10,14 @@ $color-grey-light-2: #aaa;
 $color-grey-dark-1: #54483A;
 $color-grey-dark-2: #6D5D4B;
 
+$color-white: #fff;
+$color-black: #000;
 // FONT VARIABLES
 $font-primary: 'Nunito', sans-serif;
 $font-display: 'Josefin Sans', sans-serif;
+
+//TRANSITION
+$transition: all .2s;
 
 //Global Reset
 *,
@@ -63,4 +68,27 @@ input {
     display: grid;
     grid-template-rows: 80vh auto 40vw repeat(4, auto);
     grid-template-columns: [sidebar-start] 8rem [sidebar-end full_bleed-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end] ) [center-end] minmax(6rem, 1fr) [full_bleed-end];
+}
+//UTILITY
+.mb-sm { margin-bottom: 2rem !important;}
+.mb-md { margin-bottom: 3rem !important;}
+.mb-lg { margin-bottom: 4rem !important;}
+.mb-hg { margin-bottom: 8rem !important;}
+
+
+//button elements
+.btn {
+    color: $color-white;
+    background-color: $color-primary;
+    font-family: $font-display;
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1;
+    text-transform: uppercase;
+    padding: 1.2em 2em;
+    transition: $transition;
+
+    &:hover {
+        background-color: $color-primary-dark;
+    }
 }
