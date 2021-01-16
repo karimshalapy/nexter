@@ -1,0 +1,23 @@
+{
+  "name": "nexter",
+  "version": "1.0.0",
+  "description": "Nexter webpage",
+  "main": "index.js",
+  "scripts": {
+    "watch:sass": "node-sass --watch sass -o css",
+    "compile:sass": "node-sass ./sass/main.scss ./css/main.comp.css",
+    "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' ./css/main.comp.css -o ./css/main.prefix.css",
+    "compress:css": "node-sass ./css/main.prefix.css ./css/main.css --output-style compressed",
+    "build": "npm-run-all compile:sass prefix:css compress:css && rm ./css/main.*.css"
+  },
+  "author": "Karim",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.2.1",
+    "concat": "^1.0.3",
+    "node-sass": "^5.0.0",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.2.4",
+    "postcss-cli": "^8.3.1"
+  }
+}
