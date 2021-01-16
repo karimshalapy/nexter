@@ -118,8 +118,24 @@ body {
     transform: translateY(-1rem); }
 
 .story__pictures {
-  background-color: #c69963;
-  grid-column: full_bleed-start/span 5; }
+  background-image: linear-gradient(rgba(198, 153, 99, 0.5), rgba(198, 153, 99, 0.5)), url("../img/back.jpg");
+  background-size: cover;
+  grid-column: full_bleed-start/span 5;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  align-items: center; }
+
+.story__img--1 {
+  grid-area: 2/2/6/6;
+  width: 100%;
+  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.1); }
+
+.story__img--2 {
+  grid-area: 4/4/6/8;
+  width: 115%;
+  z-index: 1;
+  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2); }
 
 .story__content {
   background-color: #f9f7f6;
