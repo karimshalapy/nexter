@@ -1,4 +1,42 @@
+%lines {
+    height: .2rem;
+    height: .2rem;
+    background-color: $color-grey-light-1;
+    width: 100%;
+}
+%after-and-before {
+    content: "";
+    display: block;
+    position: absolute
+}
+
 .sidebar {
     background-color: $color-primary;
     grid-area: 1/sidebar-start/-1/sidebar-end;
+    &__btn {
+        display: block;
+        width: 4rem;
+        position: fixed;
+        top: 3rem;
+        left: 2rem;
+        &:focus, &:active {
+            outline: .2rem solid $color-secondary;
+            outline-offset: .2rem
+        }
+    }
+    &__icon {
+        @extend %lines;
+        position: relative;
+        margin: 1rem 0;
+        &::after {
+            @extend %lines;
+            @extend %after-and-before;
+            top: -1rem;
+        }
+        &::before {
+            @extend %lines;
+            @extend %after-and-before;
+            bottom: -1rem;
+        }
+    }
 }

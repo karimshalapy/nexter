@@ -50,7 +50,7 @@ button {
   text-transform: uppercase;
   padding: 1.2em 2em;
   transition: all 0.2s; }
-  .btn:hover {
+  .btn:hover, .btn:focus {
     background-color: #B28451; }
 
 body {
@@ -84,9 +84,36 @@ body {
   .heading-4--dark {
     color: #54483A; }
 
+.sidebar__icon, .sidebar__icon::after, .sidebar__icon::before {
+  height: .2rem;
+  height: .2rem;
+  background-color: #f9f7f6;
+  width: 100%; }
+
+.sidebar__icon::after, .sidebar__icon::before {
+  content: "";
+  display: block;
+  position: absolute; }
+
 .sidebar {
   background-color: #c69963;
   grid-area: 1/sidebar-start/-1/sidebar-end; }
+  .sidebar__btn {
+    display: block;
+    width: 4rem;
+    position: fixed;
+    top: 3rem;
+    left: 2rem; }
+    .sidebar__btn:focus, .sidebar__btn:active {
+      outline: 0.2rem solid #101d2c;
+      outline-offset: .2rem; }
+  .sidebar__icon {
+    position: relative;
+    margin: 1rem 0; }
+    .sidebar__icon::after {
+      top: -1rem; }
+    .sidebar__icon::before {
+      bottom: -1rem; }
 
 .header {
   background-color: #54483A;
